@@ -1,0 +1,218 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: hsl(210, 46%, 95%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 100vh;
+  font-family: "Manrope", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-size: 13px;
+  font-style: normal;
+  padding: 2rem;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  border-radius: 10px;
+  background-color: white;
+  width: 770px;
+}
+.container .mainImage {
+  width: 400px;
+  height: auto;
+}
+.container .subContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 2.5rem;
+  height: 320px;
+  background-color: white;
+  margin-left: -75px;
+  position: relative;
+}
+.container .subContainer h1 {
+  color: hsl(217, 19%, 35%);
+  font-weight: 700;
+  font-size: 1.4rem;
+  line-height: 1.9rem;
+}
+.container .subContainer p {
+  color: hsl(214, 17%, 51%);
+}
+.container .subContainer .info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.container .subContainer .info .person-info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.container .subContainer .info .person-info .avatar {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+}
+.container .subContainer .info .person-info .name-date {
+  font-size: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.container .subContainer .info .person-info .name-date .name {
+  color: hsl(217, 19%, 35%);
+  font-weight: 700;
+}
+.container .subContainer .info .person-info .name-date .date {
+  color: hsl(212, 23%, 69%);
+}
+.container .subContainer .info #share {
+  width: 35px;
+  height: 35px;
+  background-color: hsl(210, 46%, 95%);
+  border-radius: 50%;
+  border: none;
+}
+.container .subContainer .info #share:hover {
+  cursor: pointer;
+  background-color: hsl(214, 17%, 51%);
+}
+.container .subContainer .info #share:hover svg path {
+  fill: hsl(210, 46%, 95%);
+}
+.container .subContainer .info #share.showing {
+  cursor: pointer;
+  background-color: hsl(214, 17%, 51%);
+}
+.container .subContainer .info #share.showing svg path {
+  fill: hsl(210, 46%, 95%);
+}
+.container #hidden {
+  position: absolute;
+  display: flex;
+  visibility: hidden;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  background-color: hsl(217, 19%, 35%);
+  color: hsl(212, 23%, 69%);
+  letter-spacing: 5px;
+  border-radius: 0.5rem;
+  padding: 1rem 1.4rem;
+  margin-left: 655px;
+  margin-top: 55px;
+  box-shadow: 0 5px 20px;
+  transform: scaleY(0.7);
+  transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out, transform 0.3s ease-in-out;
+  opacity: 0;
+}
+.container #hidden.show {
+  visibility: visible;
+  transform: scaleY(1);
+  opacity: 1;
+}
+.container #hidden .icons {
+  display: flex;
+  gap: 1rem;
+}
+.container #hidden #share2 {
+  display: none;
+  width: 35px;
+  height: 35px;
+  background-color: hsl(214, 17%, 51%);
+  border: none;
+  border-radius: 50%;
+}
+.container #hidden #share2 svg path {
+  fill: hsl(210, 46%, 95%);
+}
+.container #hidden::before {
+  content: "";
+  width: 0;
+  height: 0;
+  position: absolute;
+  border-top: 20px solid hsl(217, 19%, 35%);
+  border-left: 18px solid transparent;
+  border-right: 18px solid transparent;
+  border-bottom: 20px solid transparent;
+  margin-top: 85px;
+}
+
+@media (max-width: 768px) {
+  body .container {
+    width: 720px;
+  }
+  body .container .subContainer {
+    padding: 2rem;
+  }
+  body .container .subContainer h1 {
+    font-size: 1.2rem;
+  }
+  body .container #hidden {
+    flex-direction: column;
+    margin-left: 620px;
+    margin-top: 50px;
+  }
+  body .container #hidden::before {
+    margin-top: 120px;
+  }
+}
+@media (max-width: 425px) {
+  body .container {
+    flex-direction: column;
+  }
+  body .container .mainImage {
+    width: auto;
+    height: 290px;
+  }
+  body .container .subContainer {
+    padding: 2rem;
+    height: auto;
+    margin-left: 0;
+    gap: 2rem;
+  }
+  body .container .subContainer h1 {
+    font-size: 1.15rem;
+    line-height: 1.6rem;
+  }
+  body .container #hidden {
+    position: relative;
+    display: none;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 1rem 1.8rem;
+    margin-left: 0;
+    margin-top: 0;
+    width: 100%;
+    height: 70px;
+    border-radius: 0 0 10px 10px;
+    box-shadow: none;
+  }
+  body .container #hidden.show {
+    display: flex;
+  }
+  body .container #hidden .icons {
+    display: flex;
+    gap: 1rem;
+  }
+  body .container #hidden #share2 {
+    display: block;
+  }
+  body .container #hidden::before {
+    display: none;
+  }
+}/*# sourceMappingURL=style.css.map */
